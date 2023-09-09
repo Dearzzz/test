@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() {
+    double totalBelanja;
+    double diskon = 0.0;
+
+    // Meminta input total belanja dari pengguna
+    printf("Masukkan total belanja (Rp): ");
+    scanf("%lf", &totalBelanja);
+
+    // Menghitung diskon berdasarkan aturan
+    if (totalBelanja >= 200000 && totalBelanja <= 500000) {
+        diskon = 0.10 * totalBelanja; // 10% diskon
+    } else if (totalBelanja >= 550000 && totalBelanja <= 1000000) {
+        diskon = 0.20 * totalBelanja; // 20% diskon
+    } else if (totalBelanja > 1000000) {
+        diskon = 0.30 * totalBelanja; // 30% diskon
+    }
+
+    // Mengecek apakah pembeli melakukan transaksi 4 kali dalam sebulan
+    int transaksiSebulan;
+    printf("Jumlah transaksi dalam sebulan: ");
+    scanf("%d", &transaksiSebulan);
+
+    if (transaksiSebulan == 4) {
+        diskon += 0.20 * totalBelanja; // 20% diskon tambahan
+    }
+
+    // Menghitung total yang harus dibayar setelah diskon
+    double totalDibayar = totalBelanja - diskon;
+
+    // Menampilkan total yang harus dibayar
+    printf("Total yang harus dibayar setelah diskon: Rp %.2lf\n", totalDibayar);
+
+    return 0;
+}
